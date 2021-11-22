@@ -1,0 +1,7 @@
+/* #border {
+    outline: 1px solid black;
+} */
+
+#navRow {
+    background-image: linear-gradient(to right, blue, darkblue);
+}
