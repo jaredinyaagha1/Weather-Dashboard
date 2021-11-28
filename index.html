@@ -20,8 +20,8 @@
             <form>
             <div class="d-grid gap-2">
               <div class="p-2 fw-bold h3">Search for a City:</div>
-              <input id="searchBar" class="p-2 form-control" placeholder="Search City">
-              <button type="button" id="searchBtn" class="p-2 btn btn-primary">Submit</button>
+              <input id="searchBar" name="searchBar" class="p-2 form-control" placeholder="Search City">
+              <button type="button" id="searchBtn" class="p-2 btn btn-primary">Search</button>
             </div>
           </form>
           </div>
@@ -33,20 +33,20 @@
 
         <div id="rightCol" class="col-8 py-3">
           <div id="border" class="row border border-secondary">
-            <div id="nameDate" class="row fw-bold">
+            <div id="nameDate" class="row fw-bold h3">
               <div class="col-sm-1" id="cityName">Atlanta</div>
               <div class="col-sm-1" id="theDate">(xx/xx/xxxx)</div>
             </div>
             <ul class="today list-unstyled">
-              <li class="temp">Temp:</li>
-              <li class="wind">Wind:</li>
-              <li class="humidity">Humidity:</li>
-              <li class="UV Index">UV Index:</li>
+              <li id="temp">Temp: </li>
+              <li id="wind">Wind: </li>
+              <li id="humidity">Humidity: </li>
+              <li id="uvIndex">UV Index: </li>
             </ul>
           </div>
 
           <div class="row">
-            <div class="fw-bold">5-Day Forecast:</div>
+            <div class="fw-bold h3">5-Day Forecast:</div>
             <div class="row">
               <div id="dayOne" class="col">
                 <ul class="list-unstyled">
