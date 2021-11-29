@@ -19,14 +19,15 @@ function searchCity() {
     
     if (input) {
         localStorage.setItem(input, inputVal);        
-        // fetchCity(encodeURI(input));        
-        allStorage();
+        fetchCity(encodeURI(input));        
+        cityStorage();
+        // createTodayBlock();
     }
 }
 
 function fetchCity(input) {
     var requestUrl = cityUrl + input + "&appid=" + APIKey;
-    console.log(requestUrl);
+    // console.log(requestUrl);
     fetch(requestUrl)
         .then(function(response) {            
             if (!response.ok) {
@@ -36,21 +37,22 @@ function fetchCity(input) {
                 return response.json();
             })        
         .then(function (data) {
-                console.log(data)
+                console.log(data);
                 var currentTemp = data.main.temp;
                 var kelvToFahr = Math.round((currentTemp - 273.15) * 9/5 + 32);
-                console.log(kelvToFahr);
-                createTodayBlock();
+                // console.log(kelvToFahr);
+                // createTodayBlock(kelvToFahr, data.main.)
             })
+        
 }
 
 function createTodayBlock() {
-    rightCol.classList.toggle("visually-hidden");
+    rightCol.removeClass("d-none");
 }
 
 function createForecastBlocks() {}
 
-function allStorage() {
+function cityStorage() {
     var searchedCities = [],
         keys = Object.keys(localStorage),
         i = keys.length;
@@ -60,7 +62,7 @@ function allStorage() {
         searchedCities.push(cityName);
         
     }
-    console.log(searchedCities);
+    // console.log(searchedCities);
     createHistoryButtons(searchedCities)
 }
 
