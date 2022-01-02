@@ -5,3 +5,8 @@
 #navRow {
     background-image: linear-gradient(to right, blue, darkblue);
 }
+
+.mini {
+    background-color: darkblue;
+    color: white;
+}

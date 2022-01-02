@@ -33,38 +33,71 @@
 
         <div id="rightCol" class="col-8 py-3 d-none">
           <div id="border" class="row border border-secondary">
-            <div id="nameDate" class="row fw-bold h3">
-              <div class="col-sm-1" id="cityName">Atlanta</div>
-              <div class="col-sm-1" id="theDate">(xx/xx/xxxx)</div>
-            </div>
-            <ul class="today list-unstyled">
-              <li id="temp">Temp: </li>
-              <li id="wind">Wind: </li>
-              <li id="humidity">Humidity: </li>
-              <li id="uvIndex">UV Index: </li>
+            <div id="nameDate" class="row fw-bold h3"> </div><div id="icon"><img id="icon0" src="" alt="Weather icon"></div>
+            <ul id="0" class="today list-unstyled">
+              <li id="temp0">Temp: </li>
+              <li id="wind0">Wind: </li>
+              <li id="humidity0">Humidity: </li>
+              <li id="uvIndex0">UV Index: </li>
             </ul>
           </div>
 
           <div class="row">
             <div class="fw-bold h3">5-Day Forecast:</div>
-            <div class="row">
-              <div id="dayOne" class="col">
-                <ul class="list-unstyled">
-                  <li class="date">(xx/xx/xxxx)</li>
-                  <li class="icon">ads</li>
-                  <li class="temp">asds</li>
-                  <li class="wind">asdd</li>
-                  <li class="humidity">asdsada</li>
-                </ul>
-              </div>
-                </ul>
+            <div class="row gap-3">
+                <div class="col mini">
+                  <ul id="1" class="fiveDay list-unstyled">
+                    <li id="date1" class="date h4"></li>
+                    <li id="icon1" class="icon"><img id="Icon1" src="" alt="Weather icon"></li>
+                    <li id="temp1" class="temp">Temp: </li>
+                    <li id="wind1" class="wind">Wind: </li>
+                    <li id="humidity1" class="humidity">Humidity: </li>
+                  </ul>
+                </div>
+                <div class="col mini">
+                  <ul id="2" class="fiveDay list-unstyled">
+                    <li id="date2" class="date h4"></li>
+                    <li id="icon2" class="icon"><img id="Icon2" src="" alt="Weather icon"></li>
+                    <li id="temp2" class="temp">Temp: </li>
+                    <li id="wind2" class="wind">Wind: </li>
+                    <li id="humidity2" class="humidity">Humidity: </li>
+                  </ul>
+                </div>
+                <div class="col mini">
+                  <ul id="3" class="fiveDay list-unstyled">
+                    <li id="date3" class="date h4"></li>
+                    <li id="icon3" class="icon"><img id="Icon3" src="" alt="Weather icon"></li>
+                    <li id="temp3" class="temp">Temp: </li>
+                    <li id="wind3" class="wind">Wind: </li>
+                    <li id="humidity3" class="humidity">Humidity: </li>
+                  </ul>
+                </div>
+                <div class="col mini">
+                  <ul id="4" class="fiveDay list-unstyled">
+                    <li id="date4" class="date h4"></li>
+                    <li id="icon4" class="icon"><img id="Icon4" src="" alt="Weather icon"></li>
+                    <li id="temp4" class="temp">Temp: </li>
+                    <li id="wind4" class="wind">Wind: </li>
+                    <li id="humidity4" class="humidity">Humidity: </li>
+                  </ul>
+                </div>
+                <div class="col mini">
+                  <ul id="5" class="fiveDay list-unstyled">
+                    <li id="date5" class="date h4"></li>
+                    <li id="icon5" class="icon"><img id="Icon5" src="" alt="Weather icon"></li>
+                    <li id="temp5" class="temp">Temp: </li>
+                    <li id="wind5" class="wind">Wind: </li>
+                    <li id="humidity5" class="humidity">Humidity: </li>
+                  </ul>
+                </div>
               </div>
             </div>
           </div>
         </div>
-      </div> 
+      </div>
     </div>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.27.0/moment.min.js"></script>
     <script src="script.js"></script>
 </body>
 
