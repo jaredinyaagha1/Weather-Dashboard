@@ -21,22 +21,25 @@ var date0 = moment().format('L');
 $(document).ready(function() {
 //////SEARCH HANDLING
 function searchCity() {
-    initInput = searchBar.val(),
-    inputVal = JSON.stringify(initInput);    
+    initInput = searchBar.val();
+    // inputVal = JSON.stringify(initInput);    
     if (initInput) {
-        localStorage.setItem(initInput, inputVal);        
-        fetchCoords(encodeURI(initInput));        
+        // localStorage.setItem(initInput, inputVal);        
+        fetchCoords(initInput);        
         storagetoButtons();
         
     }
 }
 
-// function handleSearchHistory(event) {
-//     var button = event.target;
-//     var city = button.getAttribute("value");
-//     console.log(city);
-//     fetchCoords(encodeURI(city));
-// }
+function handleSearchHistory(event) {
+    if (!event.target.matches(".histBtn")) {
+        return
+    }
+    var button = event.target;
+    var city = button.getAttribute("value");
+    // console.log(city);
+    fetchCoords(city);
+}
 // 
 // function searchHistory() {
 //     var input = histBtn.val();
@@ -50,6 +53,9 @@ function searchCity() {
 
 //////API DATA CALL
 function fetchCoords(input) {
+    inputKey = input;
+    inputPair = JSON.stringify(input);
+    localStorage.setItem(inputKey, inputPair)
     var requestUrl = coordUrl + input + "&appid=" + APIKey;
     fetch(requestUrl)
         .then(function(response) {            
@@ -62,7 +68,7 @@ function fetchCoords(input) {
         .then(function (data) {
                 // console.log(data);                
                 var coordUrl = cityInfoUrl + data.coord.lat + "&lon=" + data.coord.lon + "&exclude=hourly,minutely&appid=" + APIKey;
-                dataName = data.name;
+                
                 // console.log(coordUrl);
                 fetchCityInfo(coordUrl);
             })
@@ -96,8 +102,9 @@ function createBlocks(input) {
             var iconcode = input[0].weather[0].icon,
             iconURL = "http://openweathermap.org/img/w/" + iconcode + ".png";
             icon0.attr('src', iconURL);
-            nameDate.html(JSON.parse(localStorage.getItem(initInput)));
+            nameDate.html(JSON.parse(localStorage.getItem(inputKey)));
             nameDate.append(" (" + date0 + ")");
+            console.log(JSON.parse(localStorage.getItem(inputKey)));
             var currentTemp = Math.round((input[0].temp.day - 273.15) * 9/5 + 32);
             temp0.html("Temp: " + currentTemp + "°F");
             wind0.html("Wind: " + input[0].wind_speed + " MPH");
@@ -169,9 +176,7 @@ function createHistoryButtons(input) {
 
 //////EVENT HANDLERS
 searchBtn.on("click", searchCity);
-histBtn.on("click", function(event) {
-    handleSearchHistory(event);
-})
+historyButtons.on("click", handleSearchHistory);
 // searchBar.on("keydown", function(event) {
 //     if(event.key === 'Enter') {
 //         searchCity;
